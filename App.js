@@ -1,12 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Counter from './src/Counter';
+import Upgrade from './src/Upgrade';
+import upgradesValt from './src/store/upgrades';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+
+      <Counter/>
+
+      <View>
+        {upgradesValt.map((upgradeValt, i) => (
+          <Upgrade upgradeValt={upgradeValt} key={i}/>
+        ))}
+      </View>
+
     </View>
   );
 }
